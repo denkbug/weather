@@ -3,6 +3,13 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-commons</artifactId>
+            <version>1.13.4.RELEASE</version>
+        </dependency>
+    </dependencies>
     <parent>
         <groupId>com.denk</groupId>
         <artifactId>weather</artifactId>
