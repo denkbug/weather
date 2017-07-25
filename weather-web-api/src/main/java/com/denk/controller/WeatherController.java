@@ -13,13 +13,13 @@ public class WeatherController {
 
     @RequestMapping("/")
     public String weather() {
-        System.out.println("get:controller");
+        //System.out.println("get:controller");
         return weatherService.getWeatherByCityId(1).toString();
     }
 
     @RequestMapping("/save")
     public void saveWeather() {
-        System.out.println("save:controller");
+        //System.out.println("save:controller");
         weatherService.saveWeather(1, "北京", 0, 100);
     }
 }
