@@ -7,5 +7,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * Created by lvdengke1 on 2017/7/25.
  */
 public interface WeatherRepository extends MongoRepository<Weather, String> {
-    Weather findByCityId(int cityId);
+    Weather findByCityId(String cityId);
 }

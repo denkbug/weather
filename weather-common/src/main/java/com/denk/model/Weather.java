@@ -1,19 +1,18 @@
 package com.denk.model;
 
-import org.springframework.data.annotation.Id;
 
 /**
  * Created by lvdengke1 on 2017/7/25.
  */
 public class Weather {
-    @Id
+
     public String id;
-    public int cityId;
+    public String cityId;
     public String cityName;
     public int minTemperature;
     public int maxTemperature;
 
-    public Weather(int cityId, String cityName, int minTemperature, int maxTemperature) {
+    public Weather(String cityId, String cityName, int minTemperature, int maxTemperature) {
         this.cityId = cityId;
         this.cityName = cityName;
         this.minTemperature = minTemperature;
@@ -26,6 +25,14 @@ public class Weather {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(String cityId) {
+        this.cityId = cityId;
     }
 
     public String getCityName() {
@@ -54,7 +61,7 @@ public class Weather {
 
 
     public String toString() {
-        return String.format("cityId:%d, cityName:%s, 温度：%d ~ %d",
-                cityId, cityName, minTemperature, maxTemperature);
+        return String.format("%s %d  ~ %d  ℃",
+                cityName, minTemperature, maxTemperature);
     }
 }
