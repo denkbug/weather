@@ -29,7 +29,7 @@ public class WeatherController {
     }
 
     @RequestMapping("/save")
-    public void saveWeather(String cityId, String cityName, int minTemperature, int maxTemperature) {
+    public void saveWeather(String cityId, String cityName, String minTemperature, String maxTemperature) {
         weatherService.saveWeather(cityId, cityName, minTemperature, maxTemperature);
     }
 }

@@ -22,10 +22,16 @@ public class WeatherService {
         return weatherRepository.findByCityId(cityId);
     }
 
-    public void saveWeather(String cityId, String cityName, int minTemperature, int maxTemperature) {
+    public void saveWeather(String cityId, String cityName, String minTemperature, String maxTemperature) {
         City city = new City(cityId, cityName);
         cityReposity.save(city);
         Weather weather = new Weather(cityId, cityName, minTemperature, maxTemperature);
+        weatherRepository.save(weather);
+    }
+
+    public void saveWeather(Weather weather) {
+        City city = new City(weather.getCityId(), weather.getCityName());
+        cityReposity.save(city);
         weatherRepository.save(weather);
     }
 }

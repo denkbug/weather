@@ -9,10 +9,10 @@ public class Weather {
     public String id;
     public String cityId;
     public String cityName;
-    public int minTemperature;
-    public int maxTemperature;
+    public String minTemperature;
+    public String maxTemperature;
 
-    public Weather(String cityId, String cityName, int minTemperature, int maxTemperature) {
+    public Weather(String cityId, String cityName, String minTemperature, String maxTemperature) {
         this.cityId = cityId;
         this.cityName = cityName;
         this.minTemperature = minTemperature;
@@ -43,25 +43,25 @@ public class Weather {
         this.cityName = cityName;
     }
 
-    public int getMinTemperature() {
+    public String getMinTemperature() {
         return minTemperature;
     }
 
-    public void setMinTemperature(int minTemperature) {
+    public void setMinTemperature(String minTemperature) {
         this.minTemperature = minTemperature;
     }
 
-    public int getMaxTemperature() {
+    public String getMaxTemperature() {
         return maxTemperature;
     }
 
-    public void setMaxTemperature(int maxTemperature) {
+    public void setMaxTemperature(String maxTemperature) {
         this.maxTemperature = maxTemperature;
     }
 
 
     public String toString() {
-        return String.format("%s %d  ~ %d  ℃",
+        return String.format("%s %s  ~ %s",
                 cityName, minTemperature, maxTemperature);
     }
 }
