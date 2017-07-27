@@ -3,8 +3,6 @@ package com.denk.webmagic.processor;
 import com.denk.model.Weather;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
-import us.codecraft.webmagic.Spider;
-import us.codecraft.webmagic.pipeline.JsonFilePipeline;
 import us.codecraft.webmagic.processor.PageProcessor;
 
 import java.util.ArrayList;
@@ -29,10 +27,11 @@ public class WeatherPageProcessor implements PageProcessor {
         Weather weather = new Weather(cityId, cityName, minTemperature, maxTemperature);
         page.putField("weather", weather);
 
-        System.out.println("cityId: " + cityId);
+//        System.out.println("cityId: " + cityId);
         System.out.println("cityName: " + cityName);
-        System.out.println("minTemperature: " + minTemperature);
-        System.out.println("maxTemperature: " + maxTemperature);
+        System.out.println();
+//        System.out.println("minTemperature: " + minTemperature);
+//        System.out.println("maxTemperature: " + maxTemperature);
 
 //        String dayTemperature = page.getHtml().xpath("//div[@class='t']/ul[@class='clearfix']/li[1]/p[@class='tem']/span/text()").toString();
 //        String nightTemperature = page.getHtml().xpath("//div[@class='t']/ul[@class='clearfix']/li[2]/p[@class='tem']/span/text()").toString();
@@ -53,9 +52,4 @@ public class WeatherPageProcessor implements PageProcessor {
         return urls_real;
     }
 
-    public static void main(String[] args) {
-        Spider.create(new WeatherPageProcessor())
-                .addUrl("http://www.weather.com.cn/weather/101011000.shtml")
-                .addPipeline(new JsonFilePipeline("D:\\webmagic\\")).thread(5).run();
-    }
 }
