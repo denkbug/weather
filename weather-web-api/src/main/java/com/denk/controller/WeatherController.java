@@ -12,24 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class WeatherController {
 
     @Autowired
-    public WeatherService weatherService;
+    private WeatherService weatherService;
 
     @Autowired
-    public CityService cityService;
+    private CityService cityService;
 
-    @RequestMapping("/{cityId}")
+    @RequestMapping("/weather/{cityId}")
     public String weather(@PathVariable String cityId) {
         Weather weather = weatherService.getWeatherByCityId(cityId);
         return weather == null ? "no such city" : weather.toString();
     }
 
-    @RequestMapping("/list")
+    @RequestMapping("/city/list")
     public String listCitys() {
         return cityService.listCitys().toString();
     }
 
-    @RequestMapping("/save")
-    public void saveWeather(String cityId, String cityName, String minTemperature, String maxTemperature) {
-        weatherService.saveWeather(cityId, cityName, minTemperature, maxTemperature);
-    }
 }

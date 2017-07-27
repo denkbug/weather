@@ -1,5 +1,6 @@
 package com.denk.controller;
 
+import com.denk.service.WeatherAndCityService;
 import com.denk.webmagic.pipeline.MongodbPipeline;
 import com.denk.webmagic.processor.WeatherPageProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,14 +14,21 @@ import us.codecraft.webmagic.Spider;
 @RestController
 public class SchdeuleController {
 
+    private static final String WEATHER_FETCH_URL = "http://www.weather.com.cn/weather/101011000.shtml";
+    private static final int WEATHER_FETCH_THREAD_COUNT = 5;
+
     @Autowired
     private MongodbPipeline mongodbPipeline;
+    @Autowired
+    private WeatherAndCityService weatherAndCityService;
 
-    @Scheduled(initialDelay = 1000, fixedDelay = 60000*60)
+    @Scheduled(initialDelay = 1000, fixedDelay = 60000 * 3)
     public void fetchAndUpdateWeatherTask() {
+        weatherAndCityService.dropAllWeatherAndCities();
         Spider.create(new WeatherPageProcessor())
-                .addUrl("http://www.weather.com.cn/weather/101011000.shtml")
+                .addUrl(WEATHER_FETCH_URL)
                 .addPipeline(mongodbPipeline)
-                .thread(5).run();
+                .thread(WEATHER_FETCH_THREAD_COUNT)
+                .run();
     }
 }

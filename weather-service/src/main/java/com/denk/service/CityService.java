@@ -13,9 +13,17 @@ import java.util.List;
 @Service
 public class CityService {
     @Autowired
-    public CityReposity cityReposity;
+    private CityReposity cityReposity;
 
     public List<City> listCitys(){
         return cityReposity.findAll();
+    }
+
+    public void saveCity(City city){
+        cityReposity.save(city);
+    }
+
+    public void dropAll() {
+        cityReposity.deleteAll();
     }
 }
