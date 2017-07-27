@@ -22,7 +22,7 @@
         </dependency>
         <dependency>
             <groupId>com.denk</groupId>
-            <artifactId>weather-service</artifactId>
+            <artifactId>weather-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

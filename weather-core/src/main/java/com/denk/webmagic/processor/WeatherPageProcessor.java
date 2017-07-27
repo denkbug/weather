@@ -28,8 +28,8 @@ public class WeatherPageProcessor implements PageProcessor {
         page.putField("weather", weather);
 
 //        System.out.println("cityId: " + cityId);
-        System.out.println("cityName: " + cityName);
-        System.out.println();
+//        System.out.println("cityName: " + cityName);
+//        System.out.println();
 //        System.out.println("minTemperature: " + minTemperature);
 //        System.out.println("maxTemperature: " + maxTemperature);
 
