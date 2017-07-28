@@ -1,0 +1,15 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Citys</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li th:each="city:${citys}">
+                <a target="_blank" th:text="${city.cityName}" th:href="@{'/weather/'+${city.cityId}}"></a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
