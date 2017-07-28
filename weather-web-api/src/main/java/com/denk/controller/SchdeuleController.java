@@ -4,6 +4,7 @@ import com.denk.service.WeatherAndCityService;
 import com.denk.webmagic.pipeline.MongodbPipeline;
 import com.denk.webmagic.processor.WeatherPageProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.RestController;
 import us.codecraft.webmagic.Spider;
@@ -14,8 +15,10 @@ import us.codecraft.webmagic.Spider;
 @RestController
 public class SchdeuleController {
 
-    private static final String WEATHER_FETCH_URL = "http://www.weather.com.cn/weather/101011000.shtml";
-    private static final int WEATHER_FETCH_THREAD_COUNT = 5;
+    @Value("${weather.fetch.url}")
+    private String WEATHER_FETCH_URL;
+    @Value("${weather.fetch.thread.count}")
+    private int WEATHER_FETCH_THREAD_COUNT;
 
     @Autowired
     private MongodbPipeline mongodbPipeline;
