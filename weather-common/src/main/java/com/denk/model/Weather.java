@@ -12,6 +12,8 @@ public class Weather {
     public String minTemperature;
     public String maxTemperature;
 
+    public Weather(){}
+
     public Weather(String cityId, String cityName, String minTemperature, String maxTemperature) {
         this.cityId = cityId;
         this.cityName = cityName;

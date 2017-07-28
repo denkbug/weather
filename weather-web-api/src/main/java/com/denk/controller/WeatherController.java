@@ -24,6 +24,10 @@ public class WeatherController {
     @RequestMapping("/weather/{cityId}")
     public String weather(Model model, @PathVariable String cityId) {
         Weather weather = weatherService.getWeatherByCityId(cityId);
+        if(weather == null) {
+            //error page
+            weather = new Weather();
+        }
         model.addAttribute("weather", weather);
         return "weather";
     }
