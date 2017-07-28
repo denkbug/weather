@@ -27,16 +27,6 @@ public class WeatherPageProcessor implements PageProcessor {
         Weather weather = new Weather(cityId, cityName, minTemperature, maxTemperature);
         page.putField("weather", weather);
 
-//        System.out.println("cityId: " + cityId);
-//        System.out.println("cityName: " + cityName);
-//        System.out.println();
-//        System.out.println("minTemperature: " + minTemperature);
-//        System.out.println("maxTemperature: " + maxTemperature);
-
-//        String dayTemperature = page.getHtml().xpath("//div[@class='t']/ul[@class='clearfix']/li[1]/p[@class='tem']/span/text()").toString();
-//        String nightTemperature = page.getHtml().xpath("//div[@class='t']/ul[@class='clearfix']/li[2]/p[@class='tem']/span/text()").toString();
-//        System.out.println("白天温度： " + dayTemperature);
-//        System.out.println("夜间温度： " + nightTemperature);
     }
 
     @Override
