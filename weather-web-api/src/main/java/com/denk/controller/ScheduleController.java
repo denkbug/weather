@@ -13,7 +13,7 @@ import us.codecraft.webmagic.Spider;
  * Created by lvdengke1 on 2017/7/27.
  */
 @RestController
-public class SchdeuleController {
+public class ScheduleController {
 
     @Value("${weather.fetch.url}")
     private String WEATHER_FETCH_URL;
