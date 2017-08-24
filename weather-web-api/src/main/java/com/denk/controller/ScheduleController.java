@@ -5,7 +5,6 @@ import com.denk.webmagic.pipeline.MongodbPipeline;
 import com.denk.webmagic.processor.WeatherPageProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.RestController;
 import us.codecraft.webmagic.Spider;
 
@@ -25,7 +24,7 @@ public class ScheduleController {
     @Autowired
     private WeatherAndCityService weatherAndCityService;
 
-    @Scheduled(initialDelay = 1000, fixedDelay = 60000 * 3)
+   // @Scheduled(initialDelay = 1000, fixedDelay = 60000 * 3)
     public void fetchAndUpdateWeatherTask() {
         weatherAndCityService.dropAllWeatherAndCities();
         Spider.create(new WeatherPageProcessor())
